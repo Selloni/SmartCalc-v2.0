@@ -74,8 +74,129 @@ void ModelCalc::pull_stack() {
         have_trg = 0;
         symbol_.push('(');
         memset(buff, '\0', sizeof(buff));
+      } else {
+        if (value_[i] != '\0') {
+          calc(value_[i]);
+        } else break;
       }
     }
   }
+}
 
+int ModelCalc::trigonometr(std::string str) {
+  int err = 0;
+  // char str[5] = {'\0'};
+  std::string tmp0 = "cos";
+  std::string tmp1 = "sin";
+  std::string tmp2 = "tan";
+  std::string tmp3 = "acos";
+  std::string tmp4 = "asin";
+  std::string tmp5 = "atan";
+  std::string tmp6 = "sqrt";
+  std::string tmp7 = "ln";
+  std::string tmp8 = "log";
+  if (str == tmp0) {  // cos
+    err = 1;
+    symbol_.push('B');
+  } else if (str == tmp1) {  // sin
+    err = 1;
+    symbol_.push('C');
+  } else if (str == tmp2) {  // tan
+    err = 1;
+    symbol_.push('D');
+  } else if (str == tmp3) {  // acos
+    err = 1;
+    symbol_.push('E');
+  } else if (str == tmp4) {  // asin
+    err = 1;
+    symbol_.push('F');
+  } else if (str == tmp5) {  // atan
+    err = 1;
+    symbol_.push('G');
+  } else if (str == tmp6) {  // sqrt
+    err = 1;
+    symbol_.push('H');
+  } else if (str == tmp7) {  // ln
+    err = 1;
+    symbol_.push('I');
+  } else if (str == tmp8) {  // log
+    err = 1;
+    symbol_.push('J');
+  }
+  return (err);
+}
+
+int ModelCalc::calc(char oper) {
+  if (!symbol_.empty()) {
+    Data var1 = 0;
+    Data var2 = 0;
+    Data sum = 0;
+    char stek_oper = symbol_.top();
+    if (oper == ')') {
+      sum = total();
+    } else if (pars_sing(oper) > pars_sing(stek_oper) || oper == '(') {
+      // /* если в стеке приоритет меньше чем текущий, кладем знак в стек */
+      symbol_.push(oper);
+    } else {  //  рекурсия или цикл что бы постоянно проверял условие
+      while ((!symbol_.empty()) && pars_sing(oper) <= pars_sing(stek_oper)) {
+        stek_oper = symbol_.top();
+        symbol_.pop();
+        if (stek_oper < 75 && stek_oper > 65) {
+          var1 = pop_char();
+          sum = calc_triginimetr(var1, stek_oper);
+          push(list, sum, '0', 0);
+        } else {
+          var1 = pop_char();
+          var2 = pop_char();
+          if (stek_oper == '+') {
+            sum = var2 + var1;
+          } else if (stek_oper == '-') {
+            sum = var2 - var1;
+          } else if (stek_oper == '/') {
+            sum = var2 / var1;
+          } else if (stek_oper == '*') {
+            sum = var2 * var1;
+          } else if (stek_oper == '^') {
+            sum = pow(var2, var1);
+          }
+          push(list, sum, '0', 0);
+        }
+      }
+      push(s_lst, 0, oper, next_prior);
+    }
+  } else {
+    symbol_.push(oper);
+  }
+  return 0;
+}
+
+
+int ModelCalc::pars_sing(char val) {
+  int prior = 0;
+  if (val == '+') {
+    prior = 2;
+  } else if (val == '-') {
+    prior = 2;
+  } else if (val == '/') {
+    prior = 3;
+  } else if (val == '*') {
+    prior = 3;
+  } else if (val == '^') {
+    prior = 5;
+  } else if (val == '(') {
+    prior = 1;
+  } else if (val == ')') {
+    prior = 1;
+  } else if (val == '%') {
+    prior = 3;
+  } else if (val >= 'B' && val <= 'J') {
+    prior = 4;
+  }
+  return prior;
+}
+
+char ModelCalc::pop_char() {
+  char val = symbol_.top();
+  symbol_.pop();
+  return val;
 }

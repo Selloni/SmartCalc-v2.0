@@ -21,12 +21,13 @@ namespace s21{
     // char pop_s(Node **plist);
     // Data string_to_double( const std::string& s);
     void pull_stack();
-    int trigonometr(char *str);
+    int trigonometr(std::string str);
     int validation(char *value);
     int pars_sing(char val);
-    int calc(Node **list, Node **s_list, int next_prior, char oper);
+    int calc(char oper);
     // void print(Node *list);
-    Data total(Node **list, Node **s_lst);
+    Data total();
     Data calc_triginimetr(Data var, char stek_oper);
+    char pop_char();
   };  // ModelCalc
 }
