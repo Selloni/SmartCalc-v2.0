@@ -144,7 +144,7 @@ int ModelCalc::calc(char oper) {
         if (stek_oper < 75 && stek_oper > 65) {
           var1 = pop_char();
           sum = calc_triginimetr(var1, stek_oper);
-          push(list, sum, '0', 0);
+          num_.push(sum);
         } else {
           var1 = pop_char();
           var2 = pop_char();
@@ -159,10 +159,10 @@ int ModelCalc::calc(char oper) {
           } else if (stek_oper == '^') {
             sum = pow(var2, var1);
           }
-          push(list, sum, '0', 0);
+          num_.push(sum);
         }
       }
-      push(s_lst, 0, oper, next_prior);
+      symbol_.push(oper);
     }
   } else {
     symbol_.push(oper);
@@ -170,6 +170,48 @@ int ModelCalc::calc(char oper) {
   return 0;
 }
 
+typename ModelCalc::Data ModelCalc::total() {
+  Data var1 = 0;
+  Data var2 = 0;
+  Data sum = 0;
+  Data total;
+  char sign;
+  int flag = 0;
+  while (!symbol_.empty()) {
+    sign = pop_s(s_lst);
+    if (sign == '(') {
+      flag = 1;
+      break;
+    }
+    if (sign > 65 && sign < 75) {
+      sum = calc_triginimetr(pop(list), sign);
+    } else {
+      var1 = pop(list);
+      var2 = pop(list);
+      if (sign == '+') {
+        sum = var2 + var1;
+      } else if (sign == '-') {
+        sum = var2 - var1;
+      } else if (sign == '/') {
+        sum = var2 / var1;
+      } else if (sign == '*') {
+        sum = var2 * var1;
+      } else if (sign == '^') {
+        sum = pow(var2, var1);
+      } else if (sign == '%') {
+        sum = fmod(var2, var1);
+      }
+    }
+    push(list, sum, '0', 0);
+  }
+  if (flag == 1) {
+    total = sum;
+
+  } else {
+    total = pop(list);
+  }
+  return (total);
+}
 
 int ModelCalc::pars_sing(char val) {
   int prior = 0;
