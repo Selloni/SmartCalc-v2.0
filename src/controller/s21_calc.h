@@ -9,7 +9,7 @@ namespace s21{
   class ModelCalc {
     public:
     using Data = double;
-    using Node = std::stack <Data>;
+    using Node = std::stack <T>;
     Node num_;
     Node symbol_;
     std::string value_ = {'\0'};
@@ -30,5 +30,6 @@ namespace s21{
     Data total();
     Data calc_triginimetr(Data var, char stek_oper);
     char pop_char();
+    Data pop_float();
   };  // ModelCalc
 }

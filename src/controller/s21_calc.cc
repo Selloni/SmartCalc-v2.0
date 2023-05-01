@@ -242,3 +242,16 @@ char ModelCalc::pop_char() {
   symbol_.pop();
   return val;
 }
+
+typename ModelCalc::Data ModelCalc::pop_float() {
+  Data val = num_.top();
+  num_.pop();
+  return val;
+}
+
+// template <typename T>
+// T ModelCalc::pop_value(Node var_) {
+//   char val = var_.top();
+//   var_.pop();
+//   return val;
+// }
