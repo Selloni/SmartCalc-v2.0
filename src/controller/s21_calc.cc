@@ -1,8 +1,6 @@
 #include "s21_calc.h"
 
-namespace s21{
-
-void ModelCalc::pull_stack() {
+typename ModelCalc::Data ModelCalc::pull_stack() {
   char buff[256] = {'\0'};
   size_t len = value_.size() + 1;
   size_t j = 0;
@@ -47,7 +45,7 @@ void ModelCalc::pull_stack() {
       }
     }
   }
-  itog_ = total();
+  return total();
 }
 
 int ModelCalc::trigonometr(std::string str) {
@@ -240,5 +238,4 @@ typename ModelCalc::Data ModelCalc::pop_float() {
 
 void ModelCalc::set_value(std::string str) {
   this->value_ = str;
-}
 }
