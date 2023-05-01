@@ -2,40 +2,6 @@
 
 using namespace s21;
 
-// typename ModelCalc::Data string_to_double( const std::string& s )
-// {
-//   std::istringstream i(s);
-//   double x;
-//   if (!(i >> x))
-//     return 0;
-//   return x;
-// } 
-
-// void not_digital(char c, ) {
-//   size_t k = 0;
-//   if (c >= 'a' && c <= 'z') {  // alphabet
-//     buff[k] = c;
-//     have_trg = 1;
-//     k++;
-//   } else if (have_trg) {
-//     trigonometr(&s_lst, str);
-//     have_trg = 0;
-//     push(&s_lst, 0, '(', -1);  //  сразу после тригонометрии пушу скобку
-//     memset(&str, '\0', 256);  //  зачистить статическую строку
-//   } else {
-//     if (c != '\0') {  // костыль
-//       int prior = pars_sing(c);
-//       if (prior != 0) {
-//         calc(&list, &s_lst, prior, c);
-//       }
-//     } else {
-//       break;
-//     }
-//   }
-// }
-
-
-
 void ModelCalc::pull_stack() {
   char buff[256] = {'\0'};
   size_t len = value_.size() + 1;
@@ -81,6 +47,7 @@ void ModelCalc::pull_stack() {
       }
     }
   }
+  itog_ = total();
 }
 
 int ModelCalc::trigonometr(std::string str) {
@@ -178,16 +145,16 @@ typename ModelCalc::Data ModelCalc::total() {
   char sign;
   int flag = 0;
   while (!symbol_.empty()) {
-    sign = pop_s(s_lst);
+    sign = pop_char();
     if (sign == '(') {
       flag = 1;
       break;
     }
     if (sign > 65 && sign < 75) {
-      sum = calc_triginimetr(pop(list), sign);
+      sum = calc_triginimetr(pop_float(), sign);
     } else {
-      var1 = pop(list);
-      var2 = pop(list);
+      var1 = pop_float();
+      var2 = pop_float();
       if (sign == '+') {
         sum = var2 + var1;
       } else if (sign == '-') {
@@ -202,13 +169,13 @@ typename ModelCalc::Data ModelCalc::total() {
         sum = fmod(var2, var1);
       }
     }
-    push(list, sum, '0', 0);
+    num_.push(sum);
   }
   if (flag == 1) {
     total = sum;
 
   } else {
-    total = pop(list);
+    total = pop_float();
   }
   return (total);
 }
@@ -248,10 +215,3 @@ typename ModelCalc::Data ModelCalc::pop_float() {
   num_.pop();
   return val;
 }
-
-// template <typename T>
-// T ModelCalc::pop_value(Node var_) {
-//   char val = var_.top();
-//   var_.pop();
-//   return val;
-// }

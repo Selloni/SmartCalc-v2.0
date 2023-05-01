@@ -4,14 +4,14 @@
 #include <iostream>
 #include <sstream>
 #include <cmath>
+#include <cstring>
 
 namespace s21{
   class ModelCalc {
     public:
     using Data = double;
-    using Node = std::stack <T>;
-    Node num_;
-    Node symbol_;
+    std::stack<Data> num_;
+    std::stack<char> symbol_;
     std::string value_ = {'\0'};
     Data itog_ = 0.0;
     Data x_value_ = 0.0;
