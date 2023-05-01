@@ -1,10 +1,9 @@
 #include "controller/s21_calc.cc"
 
 int main() {
-  using namespace std;
-  ModelCalc pp;
-  pp.value_ = "2+3";
+  s21::ModelCalc pp;
+  pp.set_value("3+4*2");
   pp.pull_stack();
-  cout << pp.itog_ ;
-
+  // EXPECT_EQ(pp.itog_, 3.5);
+  std::cout << pp.itog_ ;
 }
