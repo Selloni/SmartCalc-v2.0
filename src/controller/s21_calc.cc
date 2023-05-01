@@ -204,6 +204,28 @@ int ModelCalc::pars_sing(char val) {
   return prior;
 }
 
+typename ModelCalc::Data ModelCalc::calc_triginimetr(Data var, char stek_oper) {
+  Data res = 0;
+  if (stek_oper == 'B') {
+    res = cos(var);
+  } else if (stek_oper == 'C') {
+    res = sin(var);
+  } else if (stek_oper == 'D') {
+    res = tan(var);
+  } else if (stek_oper == 'E') {
+    res = acos(var);
+  } else if (stek_oper == 'F') {
+    res = asin(var);
+  } else if (stek_oper == 'G') {
+    res = atan(var);
+  } else if (stek_oper == 'H') {
+    res = sqrt(var);
+  } else if (stek_oper == 'J') {
+    res = log(var);
+  }
+  return res;
+}
+
 char ModelCalc::pop_char() {
   char val = symbol_.top();
   symbol_.pop();
@@ -214,4 +236,8 @@ typename ModelCalc::Data ModelCalc::pop_float() {
   Data val = num_.top();
   num_.pop();
   return val;
+}
+
+void ModelCalc::set_value(std::string str) {
+  this->value_ = str;
 }

@@ -21,9 +21,10 @@ namespace s21{
     // Data pop(Node **plist);
     // char pop_s(Node **plist);
     // Data string_to_double( const std::string& s);
+    void set_value(std::string str);
     void pull_stack();
     int trigonometr(std::string str);
-    int validation(char *value);
+    // int validation(char *value);
     int pars_sing(char val);
     int calc(char oper);
     // void print(Node *list);
