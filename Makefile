@@ -6,7 +6,7 @@ FLAG_LEAKS = -lgtest -lstdc++ -lpthread -std=c++17 -g -lcheck
 all: test
 
 test: clean
-	$(GCC) $(TEST_LIBS) src/s21_gtest.cc -o test.o
+	$(GCC) $(TEST_LIBS) src/s21_gtest.cc -o test
 	./test
 #./test --gtest_repeat=10 --gtest_break_on_failure
 

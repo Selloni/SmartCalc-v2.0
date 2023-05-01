@@ -1,6 +1,6 @@
 #include "s21_calc.h"
 
-using namespace s21;
+namespace s21{
 
 void ModelCalc::pull_stack() {
   char buff[256] = {'\0'};
@@ -240,4 +240,5 @@ typename ModelCalc::Data ModelCalc::pop_float() {
 
 void ModelCalc::set_value(std::string str) {
   this->value_ = str;
+}
 }

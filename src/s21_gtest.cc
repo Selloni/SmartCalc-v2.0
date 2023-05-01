@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "controller/s21_calc.h"
+#include "controller/s21_calc.cc"
 
 TEST(test, 1) {
   s21::ModelCalc pp;

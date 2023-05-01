@@ -1,4 +1,4 @@
-#include "controller/s21_calc.cc"
+#include "controller/s21_calc.h"
 
 int main() {
   s21::ModelCalc pp;
