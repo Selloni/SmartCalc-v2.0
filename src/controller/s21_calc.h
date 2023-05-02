@@ -15,8 +15,6 @@ class ModelCalc {
   Data itog_ = 0.0;
   Data x_value_ = 0.0;
   public:
-  // ModelCalc (std::string str): value_(str) {}
-
   void set_value(std::string str);
   Data pull_stack();
   int trigonometr(std::string str);
@@ -27,4 +25,5 @@ class ModelCalc {
   Data calc_triginimetr(Data var, char stek_oper);
   char pop_char();
   Data pop_float();
+
 };  // ModelCalc

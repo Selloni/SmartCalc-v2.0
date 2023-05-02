@@ -33,6 +33,7 @@ typename ModelCalc::Data ModelCalc::pull_stack() {
       if (value_[i] >= 'a' && value_[i] <= 'z') {  // alphabet
         buff[k] = value_[i];
         k++;
+        have_trg = 1;
       } else if (have_trg) {
         trigonometr(buff);  //// 
         have_trg = 0;
@@ -99,11 +100,12 @@ int ModelCalc::calc(char oper) {
     if (oper == ')') {
       sum = total();
     } else if ((pars_sing(oper) > pars_sing(symbol_.top())) || oper == '(') {
-      // /* если в стеке приоритет меньше чем текущий, кладем знак в стек */
       symbol_.push(oper);
-    } else {  //  рекурсия или цикл что бы постоянно проверял условие
+    }else if(oper == '^' && symbol_.top() == '^') {
+      symbol_.push(oper);
+    } else {
       while ((!symbol_.empty()) && (pars_sing(oper) <= pars_sing(symbol_.top()))) {
-       char stek_oper = pop_char();
+        char stek_oper = pop_char();
         if (stek_oper < 75 && stek_oper > 65) {
           var1 = pop_float();
           sum = calc_triginimetr(var1, stek_oper);
