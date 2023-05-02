@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    
+  {
+    "name": "(lldb) Launch",
+    "type": "cppdbg",
+    "request": "launch",
+    "program": "/Users/grandpat/SmartCalc-v2.0/src/controller/a.out",
+    "args": [],
+    "stopAtEntry": false,
+    "cwd": "${fileDirname}",
+    "environment": [],
+    "externalConsole": false,
+    "MIMode": "lldb"
+  }
+  ]
+}

@@ -96,23 +96,21 @@ int ModelCalc::calc(char oper) {
     Data var1 = 0;
     Data var2 = 0;
     Data sum = 0;
-    char stek_oper = symbol_.top();
     if (oper == ')') {
       sum = total();
-    } else if (pars_sing(oper) > pars_sing(stek_oper) || oper == '(') {
+    } else if ((pars_sing(oper) > pars_sing(symbol_.top())) || oper == '(') {
       // /* если в стеке приоритет меньше чем текущий, кладем знак в стек */
       symbol_.push(oper);
     } else {  //  рекурсия или цикл что бы постоянно проверял условие
-      while ((!symbol_.empty()) && pars_sing(oper) <= pars_sing(stek_oper)) {
-        stek_oper = symbol_.top();
-        symbol_.pop();
+      while ((!symbol_.empty()) && (pars_sing(oper) <= pars_sing(symbol_.top()))) {
+       char stek_oper = pop_char();
         if (stek_oper < 75 && stek_oper > 65) {
-          var1 = pop_char();
+          var1 = pop_float();
           sum = calc_triginimetr(var1, stek_oper);
           num_.push(sum);
         } else {
-          var1 = pop_char();
-          var2 = pop_char();
+          var1 = pop_float();
+          var2 = pop_float();
           if (stek_oper == '+') {
             sum = var2 + var1;
           } else if (stek_oper == '-') {
@@ -226,12 +224,14 @@ typename ModelCalc::Data ModelCalc::calc_triginimetr(Data var, char stek_oper) {
 
 char ModelCalc::pop_char() {
   char val = symbol_.top();
+  // std::cout <<"char:"<<val << "\n";
   symbol_.pop();
   return val;
 }
 
 typename ModelCalc::Data ModelCalc::pop_float() {
   Data val = num_.top();
+  // std::cout <<"int:"<< val << "\n";
   num_.pop();
   return val;
 }
