@@ -26,9 +26,9 @@ void Form::paintGraph(char *Y1, double X1, double xMax, double yMax, double xMin
     ui->widget->yAxis->setRange(yMin, yMax);
 
     for (X1 = xBegin; X1 <= xEnd; X1 += h) {
-        Y = pull_stack(Y1, X1);
+//        Y = pull_stack(Y1, X1);
         x.push_back(X1);
-        y.push_back(Y);
+        y.push_back(2);
     }
 
     ui->widget->addGraph();

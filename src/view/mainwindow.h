@@ -16,9 +16,9 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
-extern "C" { // внешнее подключение
-#include "s21_calc.h"
-}
+//extern "C" { // внешнее подключение
+//#include "s21_calc.h"
+//}
 
 class MainWindow : public QMainWindow {
   Q_OBJECT

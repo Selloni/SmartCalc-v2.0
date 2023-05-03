@@ -3,9 +3,9 @@
 
 #include <QWidget>
 
-extern "C" { // внешнее подключение
-#include "s21_calc.h"
-}
+//extern "C" { // внешнее подключение
+//#include "s21_calc.h"
+//}
 
 namespace Ui {
 class Form;
