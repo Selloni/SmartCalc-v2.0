@@ -11,10 +11,10 @@ CONFIG += c++17
 SOURCES += \
 #    credit.cpp \
 #    deposit_window_tuan.cpp
-    form.cpp \
+    sourse/form.cpp \
     main.cpp \
-    mainwindow.cpp \
-    qcustomplot.cpp \
+    sourse/mainwindow.cpp \
+    sourse/qcustomplot.cpp \
 #    s21_calc.c \
 #    s21_steck.c \
 #    s21_validation.c
@@ -22,16 +22,16 @@ SOURCES += \
 HEADERS += \
 #    credit.h \
 #    deposit_window_tuan.h \
-    form.h \
-    mainwindow.h \
-    qcustomplot.h \
-    s21_calc.h
+    headers/form.h \
+    headers/mainwindow.h \
+    headers/qcustomplot.h \
+#    s21_calc.h
 
 FORMS += \
 #    credit.ui \
 #    deposit_window_tuan.ui \
-    form.ui \
-    mainwindow.ui
+    form/form.ui \
+    form/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "headers/mainwindow.h"
 //#include <QTextEdit>  // for text
 #include <QLabel> // для надписей
 #include <QApplication> // for work whith parametr

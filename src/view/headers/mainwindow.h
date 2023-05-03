@@ -1,14 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "deposit_window_tuan.h"
+//#include "deposit_window_tuan.h"
 #include <QLabel>
 #include <QLineEdit>
 #include <QMainWindow>
 #include <QVector>
-#include <credit.h>
-#include <form.h>
-#include <qcustomplot.h>
+//#include <credit.h>
+#include <headers/form.h>
+#include <headers/qcustomplot.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
