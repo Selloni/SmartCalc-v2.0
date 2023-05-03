@@ -9,8 +9,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-#    credit.cpp \
-#    deposit_window_tuan.cpp
+    sourse/credit.cpp \
+#    sourse/deposit_window_tuan.cpp
     sourse/form.cpp \
     main.cpp \
     sourse/mainwindow.cpp \
@@ -20,16 +20,16 @@ SOURCES += \
 #    s21_validation.c
 
 HEADERS += \
-#    credit.h \
-#    deposit_window_tuan.h \
+    headers/credit.h \
+#    headers/deposit_window_tuan.h \
     headers/form.h \
     headers/mainwindow.h \
     headers/qcustomplot.h \
 #    s21_calc.h
 
 FORMS += \
-#    credit.ui \
-#    deposit_window_tuan.ui \
+    form/credit.ui \
+#    form/deposit_window_tuan.ui \
     form/form.ui \
     form/mainwindow.ui
 

@@ -1,4 +1,4 @@
-#include "credit.h"
+#include "headers/credit.h"
 #include "ui_credit.h"
 #include <QMessageBox>
 #include <math.h>

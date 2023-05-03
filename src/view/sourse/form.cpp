@@ -1,7 +1,5 @@
 #include "headers/form.h"
-#include "ui_form.h"
-#include"form/form.ui"
-#include "headers/qcustomplot.h"
+//#include "headers/qcustomplot.h"
 
 
 Form::Form(QWidget *parent) :

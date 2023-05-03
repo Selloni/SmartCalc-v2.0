@@ -204,16 +204,16 @@ void MainWindow::on_pushButton_Bgrav_clicked()
 
 void MainWindow::on_credit_clicked()
 {
-//    Credit window;
-//    window.setModal(true);
-//    window.exec();
+    Credit window;
+    window.setModal(true);
+    window.exec();
 }
 
 void MainWindow::on_deposit_clicked()
 {
-//    deposit_window_tuan window;
-//    window.setModal(true);
-//    window.exec();
+    deposit_window_tuan window;
+    window.setModal(true);
+    window.exec();
 }
 
 
