@@ -15,7 +15,7 @@ typename ModelCalc::Data ModelCalc::pull_stack() {
       buff[j] = value_[i];
       num_flag = 1;
       ++j;
-      if (value_[i + 1] == '(' || value_[i - 1] == ')')
+      if (value_[i + 1] == '(')
         symbol_.push('*');
     } else if (value_[i] == 'X') {
       num_.push(x_value_);
