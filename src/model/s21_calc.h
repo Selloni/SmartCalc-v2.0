@@ -1,19 +1,20 @@
 #pragma once
-#include <stack>
-#include <string>
-#include <iostream>
-#include <sstream>
 #include <cmath>
 #include <cstring>
+#include <iostream>
+#include <sstream>
+#include <stack>
+#include <string>
 
 class ModelCalc {
-  public:
+public:
   using Data = double;
   std::stack<Data> num_;
   std::stack<char> symbol_;
   std::string value_ = {'\0'};
   Data x_value_ = 0.0;
-  public:
+  // Data total_ = 0.0;
+public:
   void set_value(std::string str);
   Data pull_stack();
   int trigonometr(std::string str);
@@ -25,5 +26,5 @@ class ModelCalc {
   char pop_char();
   Data pop_float();
   int validation();
-  
-};  // ModelCalc
+
+}; // ModelCalc

@@ -132,20 +132,23 @@ void MainWindow::on_main_lab_clicked()
 
 void MainWindow::on_pushButton_equel_clicked()
 {
-//    setlocale(LC_NUMERIC, "C");  //  для вывода дробной части на линуксе
-//    double total = 0.0;
-//    QString tmp = ui->label->text();
-//    double qt_x = ui->label_2->text().toDouble();
+    setlocale(LC_NUMERIC, "C");  //  для вывода дробной части на линуксе
+    double total = 0.0;
+    QString tmp = ui->label->text();
+    double qt_x = ui->label_2->text().toDouble();
+    std::string c_tmp = tmp.toStdString();
+    model.set_string(c_tmp);
+    model.set_value_X(qt_x);
 //    QByteArray ba = tmp.toLocal8Bit(); // перевод из Qstring in *str
 //    char *c_tmp = ba.data();
-//    if (!validation(c_tmp)) {
-//        total = pull_stack(c_tmp, qt_x);
-//        QString str_total = QString::number(total);
-//// QString str_total = QString::number((double)total, 'f', 7);  //  7 дробной части
-//        ui->label->setText(str_total);
-//    } else {
-//        ui->label->setText("Error");
-//    }
+    if (!model.code_error()) {
+        total = model.get_itog();
+    QString str_total = QString::number(total);
+//    QString str_total = QString::number((double)total, 'f', 7);  //  7 дробной части
+    ui->label->setText(str_total);
+    } else {
+        ui->label->setText("Error");
+    }
 }
 
 void MainWindow::on_pushButton_back_clicked()
@@ -190,14 +193,15 @@ void MainWindow::on_pushButton_Bgrav_clicked()
 //    if (!graf_validation(xMax, xMin, yMin, yMax)) {
         double qt_x = ui->label_2->text().toDouble();
         QString tmp = ui->label->text();
-        QByteArray ba = tmp.toLocal8Bit(); // перевод из Qstring in *str
-        char *c_tmp = ba.data();
-//        if (!validation(c_tmp)) {
+        std::string ba = tmp.toStdString(); // перевод из Qstring in *str
+        model.set_string(ba);
+        model.set_value_X(qt_x);
+//        char *c_tmp = ba.data();
+        if (model.code_error()) {
             form.show();
-            form.paintGraph(&(*c_tmp), qt_x, xMax, yMax, xMin, yMin, step);
-//        }
+//            form.paintGraph(&(ba), qt_x, xMax, yMax, xMin, yMin, step);
+        }
 //    }
-
 }
 
 
@@ -211,9 +215,9 @@ void MainWindow::on_credit_clicked()
 
 void MainWindow::on_deposit_clicked()
 {
-    deposit_window_tuan window;
-    window.setModal(true);
-    window.exec();
+//    deposit_window_tuan window;
+//    window.setModal(true);
+//    window.exec();
 }
 
 

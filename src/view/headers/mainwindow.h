@@ -1,14 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "deposit_window_tuan.h"
+// #include "deposit_window_tuan.h"
+#include "../../controller/s21_controller.h"
 #include <QLabel>
 #include <QLineEdit>
 #include <QMainWindow>
 #include <QVector>
-#include <credit.h>
+#include <headers/credit.h>
 #include <headers/form.h>
-#include <headers/qcustomplot.h>
+#include <qcustomplot.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,8 +17,8 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
-//extern "C" { // внешнее подключение
-//#include "s21_calc.h"
+//extern "C++" { // внешнее подключение
+#include "../controller/s21_controller.h"
 //}
 
 class MainWindow : public QMainWindow {
@@ -32,7 +33,7 @@ private:
   Form form;
   //    credit credit;
   QLabel *actWindow;
-
+  Controller model;
 private slots:
   void number_for_calc();
   void on_pushButton_point_clicked();

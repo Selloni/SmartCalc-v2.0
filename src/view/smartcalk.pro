@@ -15,6 +15,10 @@ SOURCES += \
     main.cpp \
     sourse/mainwindow.cpp \
     sourse/qcustomplot.cpp \
+    ../model/s21_calc.cc \
+    ../controller/s21_controller.cc \
+#    ../model/s21_calc.cc
+#    model/s21_calc.cc \
 #    s21_calc.c \
 #    s21_steck.c \
 #    s21_validation.c
@@ -24,7 +28,11 @@ HEADERS += \
 #    headers/deposit_window_tuan.h \
     headers/form.h \
     headers/mainwindow.h \
-    headers/qcustomplot.h \
+    qcustomplot.h \
+    ../model/s21_calc.h \
+    ../controller/s21_controller.h \
+#    ../model/s21_calc.h
+#    model/s21_calc.h
 #    s21_calc.h
 
 FORMS += \

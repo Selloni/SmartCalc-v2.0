@@ -10,39 +10,43 @@ typename ModelCalc::Data ModelCalc::pull_stack() {
   if (value_[0] == '-' || value_[0] == '+') {
     num_.push(0);
   }
-  for(size_t i = 0; i != len; ++i) {
-    if ((value_[i] >= '0' && value_[i] <= '9') || value_[i] == '.' ) {
+  for (size_t i = 0; i != len; ++i) {
+    if ((value_[i] >= '0' && value_[i] <= '9') || value_[i] == '.') {
       buff[j] = value_[i];
       num_flag = 1;
       ++j;
-      if (value_[i+1] == '(' || value_[i-1]== ')') symbol_.push('*');
+      if (value_[i + 1] == '(' || value_[i - 1] == ')')
+        symbol_.push('*');
     } else if (value_[i] == 'X') {
       num_.push(x_value_);
       if ((value_[i - 1] >= '0' && value_[i - 1] <= '9') ||
-          (value_[i + 1] >= '0' && value_[i + 1] <= '9')) num_.push('*');
-    } else if (value_[i] == '(' && (value_[i + 1] == '+' || value_[i + 1] == '-')) {
+          (value_[i + 1] >= '0' && value_[i + 1] <= '9'))
+        num_.push('*');
+    } else if (value_[i] == '(' &&
+               (value_[i + 1] == '+' || value_[i + 1] == '-')) {
       num_.push(0);
       symbol_.push('(');
     } else {
       j = 0;
-      if(num_flag) {
+      if (num_flag) {
         num_.push(std::stod(buff));
         memset(buff, '\0', sizeof(buff));
-      } 
+      }
       num_flag = 0;
-      if (value_[i] >= 'a' && value_[i] <= 'z') {  // alphabet
+      if (value_[i] >= 'a' && value_[i] <= 'z') { // alphabet
         buff[k] = value_[i];
         k++;
         have_trg = 1;
       } else if (have_trg) {
-        trigonometr(buff);  //// 
+        trigonometr(buff); ////
         have_trg = 0;
         symbol_.push('(');
         memset(buff, '\0', sizeof(buff));
       } else {
         if (value_[i] != '\0') {
           calc(value_[i]);
-        } else break;
+        } else
+          break;
       }
     }
   }
@@ -61,31 +65,31 @@ int ModelCalc::trigonometr(std::string str) {
   std::string tmp6 = "sqrt";
   std::string tmp7 = "ln";
   std::string tmp8 = "log";
-  if (str == tmp0) {  // cos
+  if (str == tmp0) { // cos
     err = 1;
     symbol_.push('B');
-  } else if (str == tmp1) {  // sin
+  } else if (str == tmp1) { // sin
     err = 1;
     symbol_.push('C');
-  } else if (str == tmp2) {  // tan
+  } else if (str == tmp2) { // tan
     err = 1;
     symbol_.push('D');
-  } else if (str == tmp3) {  // acos
+  } else if (str == tmp3) { // acos
     err = 1;
     symbol_.push('E');
-  } else if (str == tmp4) {  // asin
+  } else if (str == tmp4) { // asin
     err = 1;
     symbol_.push('F');
-  } else if (str == tmp5) {  // atan
+  } else if (str == tmp5) { // atan
     err = 1;
     symbol_.push('G');
-  } else if (str == tmp6) {  // sqrt
+  } else if (str == tmp6) { // sqrt
     err = 1;
     symbol_.push('H');
-  } else if (str == tmp7) {  // ln
+  } else if (str == tmp7) { // ln
     err = 1;
     symbol_.push('I');
-  } else if (str == tmp8) {  // log
+  } else if (str == tmp8) { // log
     err = 1;
     symbol_.push('J');
   }
@@ -101,10 +105,11 @@ int ModelCalc::calc(char oper) {
       sum = total();
     } else if ((pars_sing(oper) > pars_sing(symbol_.top())) || oper == '(') {
       symbol_.push(oper);
-    }else if(oper == '^' && symbol_.top() == '^') {
+    } else if (oper == '^' && symbol_.top() == '^') {
       symbol_.push(oper);
     } else {
-      while ((!symbol_.empty()) && (pars_sing(oper) <= pars_sing(symbol_.top()))) {
+      while ((!symbol_.empty()) &&
+             (pars_sing(oper) <= pars_sing(symbol_.top()))) {
         char stek_oper = pop_char();
         if (stek_oper < 75 && stek_oper > 65) {
           var1 = pop_float();
@@ -238,9 +243,7 @@ typename ModelCalc::Data ModelCalc::pop_float() {
   return val;
 }
 
-void ModelCalc::set_value(std::string str) {
-  this->value_ = str;
-}
+void ModelCalc::set_value(std::string str) { this->value_ = str; }
 
 int validation(std::string value) {
   int err_flag = 1;
@@ -250,7 +253,7 @@ int validation(std::string value) {
   int len = value.length();
   if (len != 0) {
     if (value[0] == 94 || value[0] == 46 || value[0] == 47 || value[0] == 42 ||
-        value[0] == 41 || value[i] == 37) {  //  )^./*
+        value[0] == 41 || value[i] == 37) { //  )^./*
       err_flag = 1;
     } else {
       int bracket = 0;
@@ -258,7 +261,7 @@ int validation(std::string value) {
         if (((value[i] > 41 && value[i] <= 47) || value[i] == 94 ||
              value[i] == 37) &&
             ((value[i + 1] >= 41 && value[i + 1] <= 47) || value[i + 1] == 94 ||
-             value[i + 1] == 37)) {  //  )*+,-./^%
+             value[i + 1] == 37)) { //  )*+,-./^%
           if ((value[i] != ')' && value[i - 1] != ')') ||
               (value[i] != ')' && value[i + 1] != ')'))
             break;
@@ -270,7 +273,7 @@ int validation(std::string value) {
         } else if (value[i] == '*' || value[i] == '+' || value[i] == '/' ||
                    value[i] == '-') {
           point = 0;
-        } else if (value[i] == 46 && point == 0) {  // точка
+        } else if (value[i] == 46 && point == 0) { // точка
           point++;
           if (point > 1) {
             break;
@@ -284,7 +287,7 @@ int validation(std::string value) {
             break;
           }
         } else if ((value[i] > 47 && value[i] < 58) || value[i] == 'X') {
-          num_flag = 0;  //  для защиты от пустых скобок
+          num_flag = 0; //  для защиты от пустых скобок
         }
         i++;
         if (i == len && bracket == 0 && num_flag == 0) {
@@ -296,5 +299,5 @@ int validation(std::string value) {
       }
     }
   }
-  return (err_flag);  //  0 not error
+  return (err_flag); //  0 not error
 }
