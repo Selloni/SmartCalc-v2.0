@@ -245,7 +245,7 @@ typename ModelCalc::Data ModelCalc::pop_float() {
 
 void ModelCalc::set_value(std::string str) { this->value_ = str; }
 
-int validation(std::string value) {
+int ModelCalc::validation(std::string value) {
   int err_flag = 1;
   int num_flag = 1;
   int i = 0;

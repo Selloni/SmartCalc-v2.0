@@ -25,6 +25,6 @@ public:
   Data calc_triginimetr(Data var, char stek_oper);
   char pop_char();
   Data pop_float();
-  int validation();
+  int validation(std::string value);
 
 }; // ModelCalc
