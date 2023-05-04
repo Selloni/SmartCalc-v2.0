@@ -139,8 +139,6 @@ void MainWindow::on_pushButton_equel_clicked()
     std::string c_tmp = tmp.toStdString();
     model.set_string(c_tmp);
     model.set_value_X(qt_x);
-//    QByteArray ba = tmp.toLocal8Bit(); // перевод из Qstring in *str
-//    char *c_tmp = ba.data();
     if (!model.code_error()) {
         total = model.get_itog();
     QString str_total = QString::number(total);
@@ -196,10 +194,9 @@ void MainWindow::on_pushButton_Bgrav_clicked()
         std::string ba = tmp.toStdString(); // перевод из Qstring in *str
         model.set_string(ba);
         model.set_value_X(qt_x);
-//        char *c_tmp = ba.data();
-        if (model.code_error()) {
+        if (!model.code_error()) {
             form.show();
-//            form.paintGraph(&(ba), qt_x, xMax, yMax, xMin, yMin, step);
+            form.paintGraph(ba, qt_x, xMax, yMax, xMin, yMin, step);
         }
 //    }
 }

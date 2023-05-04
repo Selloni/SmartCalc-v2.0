@@ -16,7 +16,7 @@ Form::~Form()
 }
 
 
-void Form::paintGraph(char *Y1, double X1, double xMax, double yMax, double xMin, double yMin, double step)
+void Form::paintGraph(std::string Y1, double X1, double xMax, double yMax, double xMin, double yMin, double step)
 {
    double xBegin = xMin, xEnd = xMax, h = step, Y;
    QVector<double> x,y;
@@ -26,9 +26,11 @@ void Form::paintGraph(char *Y1, double X1, double xMax, double yMax, double xMin
     ui->widget->yAxis->setRange(yMin, yMax);
 
     for (X1 = xBegin; X1 <= xEnd; X1 += h) {
-//        Y = pull_stack(Y1, X1);
+        model.set_string(Y1);
+        model.set_value_X(X1);
+        Y = model.get_itog();
         x.push_back(X1);
-        y.push_back(2);
+        y.push_back(Y);
     }
 
     ui->widget->addGraph();

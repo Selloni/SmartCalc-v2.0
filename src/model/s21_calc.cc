@@ -15,11 +15,11 @@ typename ModelCalc::Data ModelCalc::pull_stack() {
       buff[j] = value_[i];
       num_flag = 1;
       ++j;
-      if (value_[i + 1] == '(')
+      if (value_[i + 1] == '(' || (i && value_[i - 1] == ')'))
         symbol_.push('*');
     } else if (value_[i] == 'X') {
       num_.push(x_value_);
-      if ((value_[i - 1] >= '0' && value_[i - 1] <= '9') ||
+      if ((i && value_[i - 1] >= '0' && value_[i - 1] <= '9') ||
           (value_[i + 1] >= '0' && value_[i + 1] <= '9'))
         num_.push('*');
     } else if (value_[i] == '(' &&
@@ -262,7 +262,7 @@ int ModelCalc::validation(std::string value) {
              value[i] == 37) &&
             ((value[i + 1] >= 41 && value[i + 1] <= 47) || value[i + 1] == 94 ||
              value[i + 1] == 37)) { //  )*+,-./^%
-          if ((value[i] != ')' && value[i - 1] != ')') ||
+          if ((value[i] != ')' && (i && value[i - 1] != ')')) ||
               (value[i] != ')' && value[i + 1] != ')'))
             break;
         } else if (value[i] == '(' &&

@@ -3,9 +3,8 @@
 
 #include <QWidget>
 
-extern "C++" { // внешнее подключение
 #include "../controller/s21_controller.h"
-}
+
 
 namespace Ui {
 class Form;
@@ -16,8 +15,9 @@ class Form : public QWidget {
 
 public:
   explicit Form(QWidget *parent = nullptr);
-  void paintGraph(char *Y1, double X1, double xMax, double yMax, double xMin, double yMin, double step);
+  void paintGraph(std::string Y1, double X1, double xMax, double yMax, double xMin, double yMin, double step);
   ~Form();
+  Controller model;
 
 private slots:
 
