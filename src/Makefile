@@ -7,29 +7,28 @@ GCC=$(CC) -Wall -Wextra -Werror -Wuninitialized
 all: test
 
 test: clean
-	$(GCC) -lgtest -lgmock -pthread gtest/s21_gtest.cc $(SOURSE) -o build/test
-	build/test
+	$(GCC) -lgtest -lgmock -pthread gtest/s21_gtest.cc $(SOURSE) -o gtest/test
+	gtest/test
 
 dvi:
 	open 'https://github.com/Selloni/SmartCalc-v2.0'
 
-install:
-	mv Makefile cloneMake && qmake && make && make clean && rm Makefile && mv cloneMake Makefile
+install: clean uninstall
+	cd view && qmake && make install
+
+open:
+	cd view && open smartcalk.app
 
 uninstall:
-		rm -rf smartcalk.app
-
-debug:
-	$(CC) $(SOURSE) -g
+	cd view && rm -rf smartcalk.app 
 
 clean:
-	rm -rf build/* &&
- 	cd view && make clean
+	rm -rf gtest/test
+	cd view && make clean
 
-
-dist:
-	mkdir build
-	tar -cf build/dist.tar smartcalk.app
+# dist:
+# 	mkdir build
+# 	tar -cf build/dist.tar smartcalk.app
 
 clang:
 	mv ../materials/linters/.clang-format .clang-format
