@@ -1,10 +1,9 @@
 #include <gtest/gtest.h>
-#include "model/s21_calc.h"
+#include "../model/s21_calc.h"
 // #include "controller/s21_controller.h"
 
 
 ModelCalc pp;
-// Controller ll;
 
 TEST(test, 1) {
   pp.set_value("3+4*2/(1-5)^2");
