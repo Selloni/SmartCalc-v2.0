@@ -957,7 +957,7 @@ moc_credit.cpp: headers/credit.h \
 		/usr/local/lib/QtWidgets.framework/Headers/qdialog.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
-	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/grandpat/SmartCalc-v2.0/src/view/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/grandpat/SmartCalc-v2.0/src/view -I/usr/local/lib/QtPrintSupport.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/usr/include/c++/12.2.1 -I/usr/include/c++/12.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/12.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include-fixed -I/usr/include -F/usr/local/lib headers/credit.h -o moc_credit.cpp
+	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/grandpat/SmartCalc-v2.0/src/view/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/grandpat/SmartCalc-v2.0/src/view -I/usr/local/lib/QtPrintSupport.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib headers/credit.h -o moc_credit.cpp
 
 moc_form.cpp: headers/form.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
@@ -966,7 +966,7 @@ moc_form.cpp: headers/form.h \
 		../model/s21_calc.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
-	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/grandpat/SmartCalc-v2.0/src/view/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/grandpat/SmartCalc-v2.0/src/view -I/usr/local/lib/QtPrintSupport.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/usr/include/c++/12.2.1 -I/usr/include/c++/12.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/12.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include-fixed -I/usr/include -F/usr/local/lib headers/form.h -o moc_form.cpp
+	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/grandpat/SmartCalc-v2.0/src/view/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/grandpat/SmartCalc-v2.0/src/view -I/usr/local/lib/QtPrintSupport.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib headers/form.h -o moc_form.cpp
 
 moc_mainwindow.cpp: headers/mainwindow.h \
 		../controller/s21_controller.h \
@@ -991,7 +991,7 @@ moc_mainwindow.cpp: headers/mainwindow.h \
 		/usr/local/lib/QtCore.framework/Headers/QtNumeric \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
-	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/grandpat/SmartCalc-v2.0/src/view/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/grandpat/SmartCalc-v2.0/src/view -I/usr/local/lib/QtPrintSupport.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/usr/include/c++/12.2.1 -I/usr/include/c++/12.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/12.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include-fixed -I/usr/include -F/usr/local/lib headers/mainwindow.h -o moc_mainwindow.cpp
+	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/grandpat/SmartCalc-v2.0/src/view/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/grandpat/SmartCalc-v2.0/src/view -I/usr/local/lib/QtPrintSupport.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib headers/mainwindow.h -o moc_mainwindow.cpp
 
 moc_qcustomplot.cpp: qcustomplot.h \
 		/usr/local/lib/QtCore.framework/Headers/qmath.h \
@@ -999,7 +999,7 @@ moc_qcustomplot.cpp: qcustomplot.h \
 		/usr/local/lib/QtCore.framework/Headers/QtNumeric \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
-	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/grandpat/SmartCalc-v2.0/src/view/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/grandpat/SmartCalc-v2.0/src/view -I/usr/local/lib/QtPrintSupport.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/usr/include/c++/12.2.1 -I/usr/include/c++/12.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/12.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include-fixed -I/usr/include -F/usr/local/lib qcustomplot.h -o moc_qcustomplot.cpp
+	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/grandpat/SmartCalc-v2.0/src/view/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/grandpat/SmartCalc-v2.0/src/view -I/usr/local/lib/QtPrintSupport.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib qcustomplot.h -o moc_qcustomplot.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

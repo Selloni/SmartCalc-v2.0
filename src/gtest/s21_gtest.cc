@@ -45,6 +45,12 @@ TEST(trgn, 8) {
   ASSERT_FLOAT_EQ(pp.pull_stack(), 0.90929741);
 }
 
+TEST(minus, 9) {
+  pp.x_value_=2;
+  pp.set_value("(-3)^2");
+  EXPECT_EQ(pp.pull_stack(), 9);
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

@@ -10,34 +10,23 @@ CONFIG += c++17
 
 SOURCES += \
     sourse/credit.cpp \
-#    sourse/deposit_window_tuan.cpp
     sourse/form.cpp \
     main.cpp \
     sourse/mainwindow.cpp \
     sourse/qcustomplot.cpp \
     ../model/s21_calc.cc \
     ../controller/s21_controller.cc \
-#    ../model/s21_calc.cc
-#    model/s21_calc.cc \
-#    s21_calc.c \
-#    s21_steck.c \
-#    s21_validation.c
 
 HEADERS += \
     headers/credit.h \
-#    headers/deposit_window_tuan.h \
     headers/form.h \
     headers/mainwindow.h \
     qcustomplot.h \
     ../model/s21_calc.h \
     ../controller/s21_controller.h \
-#    ../model/s21_calc.h
-#    model/s21_calc.h
-#    s21_calc.h
 
 FORMS += \
     form/credit.ui \
-#    form/deposit_window_tuan.ui \
     form/form.ui \
     form/mainwindow.ui
 
