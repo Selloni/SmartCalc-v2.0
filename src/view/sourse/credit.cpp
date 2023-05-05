@@ -31,7 +31,6 @@ void Credit::on_radioButton_clicked()
     } else {
         QString qt_P = "", qt_diff = "";
         QString qt_total_cr = "";
-//        ui->output->setText("");
         ui->comboBox->clear();
         ui->cr_pereplata->setText("");
         ui->total_cr->setText("");
@@ -70,8 +69,6 @@ void Credit::on_ann_clicked()
 {
     QString qt_P = "", qt_diff = "";
     QString qt_total_cr = "";
-//    ui->output->setText("");
-//    ui->comboBox->clearEditText();
     ui->comboBox->clear();
     ui->cr_pereplata->setText("");
     ui->total_cr->setText("");
