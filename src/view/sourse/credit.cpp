@@ -3,6 +3,8 @@
 #include <QMessageBox>
 #include <math.h>
 #include <QIntValidator>
+#include <QtCore>
+#include <QtGui>
 
 
 Credit::Credit(QWidget *parent) :
@@ -29,7 +31,8 @@ void Credit::on_radioButton_clicked()
     } else {
         QString qt_P = "", qt_diff = "";
         QString qt_total_cr = "";
-        ui->output->setText("");
+//        ui->output->setText("");
+        ui->comboBox->clear();
         ui->cr_pereplata->setText("");
         ui->total_cr->setText("");
         double In, P = 0, T = 0;
@@ -52,8 +55,7 @@ void Credit::on_radioButton_clicked()
             sum_cr = sum_cr - (sum_cr/month_all_cr);  //  тело постоянно уменьшаеться
             P = In + body_loan;
             T = T + In + body_loan;
-            qt_P = QString::number(P);
-            ui->output->setText(ui->output->text()+qt_P+"Руб "+"\n");
+            ui->comboBox->addItems(QStringList(QString::number(P) + " Руб"));
             month_all_cr--;
         }
         qt_total_cr = QString::number(T);
@@ -68,7 +70,9 @@ void Credit::on_ann_clicked()
 {
     QString qt_P = "", qt_diff = "";
     QString qt_total_cr = "";
-    ui->output->setText("");
+//    ui->output->setText("");
+//    ui->comboBox->clearEditText();
+    ui->comboBox->clear();
     ui->cr_pereplata->setText("");
     ui->total_cr->setText("");
 
@@ -88,7 +92,7 @@ void Credit::on_ann_clicked()
     double i = percent_cr/100/12;
     double P = sum_cr * (i+(i/(pow((1+i), month_all_cr)-1)));
     qt_P = QString::number(P);
-    ui->output->setText(qt_P);
+    ui->comboBox->addItems(QStringList(QString::number(P) + " Руб"));;
     P = P * month_all_cr;
     qt_P = QString::number(P);
     ui->total_cr->setText(qt_P);
