@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->ymin->setValidator( new QDoubleValidator(this) );
     ui->ymax->setValidator( new QDoubleValidator(this) );
     ui->label->setText("");
+//    setValidator( new QDoubleValidator(this));
     ui->label_2->setText("");
     ui->label->setAlignment(Qt::AlignRight); // для вывода цифр с права
     ui->label_2->setText("0");
@@ -50,6 +51,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_ln,SIGNAL(clicked()),this,SLOT(trigonometr()));
     connect(ui->pushButton_pow,SIGNAL(clicked()),this,SLOT(operations()));
     connect(ui->pushButton_sqrt,SIGNAL(clicked()),this,SLOT(trigonometr()));
+
+
 }
 
 MainWindow::~MainWindow()
@@ -136,6 +139,9 @@ void MainWindow::on_pushButton_equel_clicked()
     double total = 0.0;
     QString tmp = ui->label->text();
     double qt_x = ui->label_2->text().toDouble();
+    tmp.replace("e-", "/10^");
+    tmp.replace("e+", "*10^");
+    tmp.replace("e", "*10^");
     std::string c_tmp = tmp.toStdString();
     model.set_string(c_tmp);
     model.set_value_X(qt_x);
@@ -221,5 +227,11 @@ void MainWindow::on_deposit_clicked()
 void MainWindow::on_pushButton_mod_clicked()
 {
   actWindow->setText(actWindow->text().append('%'));
+}
+
+
+void MainWindow::on_pushButton_e_clicked()
+{
+    if (!ui->label->text().contains('e') && !ui->label->text().isEmpty()) ui->label->setText(ui->label->text()+"e");
 }
 

@@ -408,9 +408,9 @@ background-color: rgb(35, 74, 148);</string>
    <widget class="QPushButton" name="pushButton_mod">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>452</x>
       <y>70</y>
-      <width>93</width>
+      <width>51</width>
       <height>24</height>
      </rect>
     </property>
@@ -871,6 +871,23 @@ color: rgb(255, 255, 255);</string>
      <string>step</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_e">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>70</y>
+      <width>41</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 10pt &quot;Bitstream Vera Sans&quot;;
+background-color: rgb(35, 74, 148);</string>
+    </property>
+    <property name="text">
+     <string>e</string>
+    </property>
+   </widget>
    <zorder>pushButton_6_</zorder>
    <zorder>pushButton_div</zorder>
    <zorder>pushButton_5_</zorder>
@@ -920,6 +937,7 @@ color: rgb(255, 255, 255);</string>
    <zorder>label_6</zorder>
    <zorder>step</zorder>
    <zorder>label_7</zorder>
+   <zorder>pushButton_e</zorder>
   </widget>
  </widget>
  <resources/>
