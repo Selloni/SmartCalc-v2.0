@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 #include "../model/s21_calc.h"
-// #include "controller/s21_controller.h"
 
 
 ModelCalc pp;
