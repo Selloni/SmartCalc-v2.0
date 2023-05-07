@@ -33,9 +33,3 @@ clean:
 dist:
 	mkdir build
 	tar -cf build/dist.tar smartcalk.app
-
-clang:
-	mv ../materials/linters/.clang-format .clang-format
-	clang-format -i s21_*.c s21_*.h
-	clang-format -n s21_*.c s21_*.h
-	mv .clang-format ../materials/linters/.clang-format
