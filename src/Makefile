@@ -30,6 +30,3 @@ clean:
 	rm -rf gtest/test
 	cd view && qmake && make clean
 
-dist:
-	mkdir build
-	tar -cf build/dist.tar smartcalk.app
